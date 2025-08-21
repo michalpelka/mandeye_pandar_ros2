@@ -1,0 +1,6 @@
+[submodule "src/HesaiLidar_ROS_2.0"]
+	path = src/HesaiLidar_ROS_2.0
+	url = https://github.com/HesaiTechnology/HesaiLidar_ROS_2.0.git
+[submodule "src/Xsens_MTi_ROS_Driver_and_Ntrip_Client"]
+	path = src/Xsens_MTi_ROS_Driver_and_Ntrip_Client
+	url = https://github.com/xsenssupport/Xsens_MTi_ROS_Driver_and_Ntrip_Client.git

@@ -1,0 +1,15 @@
+[Unit]
+Description=Hesai
+After=network.target
+
+[Service]
+User=mandeye
+WorkingDirectory=/home/mandeye
+ExecStart=/home/mandeye/ros2_ws/start-ros-xsense.sh
+Restart=on-failure
+RestartSec=5
+Environment=RCUTILS_LOGGING_BUFFERED_STREAM=1
+
+[Install]
+WantedBy=multi-user.target
+
