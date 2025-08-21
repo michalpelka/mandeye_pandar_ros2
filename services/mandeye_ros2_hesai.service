@@ -3,9 +3,9 @@ Description=Hesai
 After=network.target
 
 [Service]
-User=mandeye
-WorkingDirectory=/home/mandeye
-ExecStart=/home/mandeye/ros2_ws/start-ros-hesai.sh
+User=pi
+WorkingDirectory=/home/pi
+ExecStart=/home/pi/ros2_ws/start-ros-hesai.sh
 Restart=on-failure
 RestartSec=5
 Environment=RCUTILS_LOGGING_BUFFERED_STREAM=1

@@ -1,6 +1,6 @@
 # Prerequsities
 
-User name : mandeye
+User name : pi
 Ros 2 version : Jazzy
 Ros 2 worskpace  cloned to : /home/mandeye/mandeye_pandar_ros2
 Hesai laser connected to eth0.
@@ -15,7 +15,7 @@ sudo adduser mandeye dialout
 # Build ROS 2 workspace
 
 ```
-cd /home/mandeye/mandeye_pandar_ros2
+cd /home/pi/mandeye_pandar_ros2
 git submodule update --init --recursive
 colcon build
 ```
@@ -52,7 +52,7 @@ summary_interval      1
 ## Install services for ROS 2 drivers and PTP
 
 ```
-sudo cp /home/mandeye/mandeye_pandar_ros2/services/*.service /etc/systemd/system/
+sudo cp /home/pi/mandeye_pandar_ros2/services/*.service /etc/systemd/system/
 
 ```
 
