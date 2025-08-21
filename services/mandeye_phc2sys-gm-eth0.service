@@ -1,8 +1,7 @@
 [Unit]
 Description=phc2sys (CLOCK_REALTIME -> /dev/ptp0) on eth0
-After=ptp4l-gm-eth0.service
-Requires=ptp4l-gm-eth0.service
-
+After=mandeye_ptp4l-gm-eth0.service
+Requires=mandeye_ptp4l-gm-eth0.service
 [Service]
 Type=simple
 User=root

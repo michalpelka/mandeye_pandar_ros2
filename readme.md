@@ -1,7 +1,8 @@
 # Prerequsities
 
 User name : mandeye
-Ros2 worskpace  cloned to : /home/mandeye/mandeye_pandar_ros2
+Ros 2 version : Jazzy
+Ros 2 worskpace  cloned to : /home/mandeye/mandeye_pandar_ros2
 Hesai laser connected to eth0.
 
 
@@ -15,6 +16,7 @@ sudo adduser mandeye dialout
 
 ```
 cd /home/mandeye/mandeye_pandar_ros2
+git submodule update --init --recursive
 colcon build
 ```
 
@@ -50,7 +52,8 @@ summary_interval      1
 ## Install services for ROS 2 drivers and PTP
 
 ```
-sudo cp /home/mandeye/mandeye_pandar_ros2/* /etc/systemd/system/
+sudo cp /home/mandeye/mandeye_pandar_ros2/services/*.service /etc/systemd/system/
+
 ```
 
 ### Start it
@@ -72,11 +75,11 @@ journalctl -u mandeye_ros2_xsense -n 50 -e | tail
 
 ## Setup Lidar
 Set Clock source to PTP and choose network transport "L2". 
-![](screen0.png)
+![](doc/screen0.png)
 
 ## Test
 
-![](screen1.png)
+![](doc/screen1.png)
 
 
 # Install xsense and heasi drivers as 
