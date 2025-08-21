@@ -2,7 +2,7 @@
 
 User name : pi
 Ros 2 version : Jazzy
-Ros 2 worskpace  cloned to : /home/mandeye/mandeye_pandar_ros2
+Ros 2 worskpace  cloned to : /home/pi/mandeye_pandar_ros2
 Hesai laser connected to eth0.
 
 
@@ -16,6 +16,7 @@ sudo adduser mandeye dialout
 
 ```
 cd /home/pi/mandeye_pandar_ros2
+source /opt/ros/jazzy/setup.sh
 git submodule update --init --recursive
 colcon build
 ```
