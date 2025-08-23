@@ -1,0 +1,15 @@
+[Unit]
+Description=Hesai
+After=network.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi
+ExecStart=/home/pi/mandeye_pandar_ros2/start-ros-mandeye.sh
+Restart=on-failure
+RestartSec=5
+Environment=RCUTILS_LOGGING_BUFFERED_STREAM=1
+
+[Install]
+WantedBy=multi-user.target
+

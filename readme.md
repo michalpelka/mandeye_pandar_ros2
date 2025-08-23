@@ -6,13 +6,19 @@ Ros 2 worskpace  cloned to : /home/pi/mandeye_pandar_ros2
 Hesai laser connected to eth0.
 
 
-# Setup Xsense
+## Setup Xsense
 
 ```
 sudo adduser mandeye dialout
 ```
 
-# Build ROS 2 workspace
+## Disable Rviz2
+```
+cd /home/pi/mandeye_pandar_ros2/src/HesaiLidar_ROS_2.0
+git apply /home/pi/mandeye_pandar_ros2/Heasai.path
+```
+
+## Build ROS 2 workspace
 
 ```
 cd /home/pi/mandeye_pandar_ros2
@@ -22,8 +28,7 @@ colcon build
 ```
 
 
-# Create PTP server config
-
+## Create PTP server config
 ```
 sudo apt-get update && sudo apt-get install linuxptp
 ```
@@ -57,16 +62,26 @@ sudo cp /home/pi/mandeye_pandar_ros2/services/*.service /etc/systemd/system/
 
 ```
 
-### Start it
+### Start those 
 ```
 sudo systemctl daemon-reload
 sudo systemctl enable --now mandeye_ptp4l-gm-eth0.service
 sudo systemctl enable --now mandeye_phc2sys-gm-eth0.service
 sudo systemctl enable --now mandeye_ros2_hesai.service
-sudo systemctl enable --now mandeye_ros2_xsense.service
+sudo systemctl enable --now mandeye_ros2_mandeye.service
+
 ```
 
-### Log
+```
+sudo systemctl status mandeye_ptp4l-gm-eth0.service
+sudo systemctl status mandeye_phc2sys-gm-eth0.service
+sudo systemctl status mandeye_ros2_hesai.service
+sudo systemctl status mandeye_ros2_xsense.service
+sudo systemctl status mandeye_ros2_mandeye.service
+
+```
+
+### Check logs
 ```
 journalctl -u mandeye_ptp4l-gm-eth0 -n 50 -e | tail
 journalctl -u mandeye_phc2sys-gm-eth0 -n 50 -e | tail
@@ -74,14 +89,20 @@ journalctl -u mandeye_ros2_hesai -n 50 -e | tail
 journalctl -u mandeye_ros2_xsense -n 50 -e | tail
 ```
 
-## Setup Lidar
+### Setup Lidar
 Set Clock source to PTP and choose network transport "L2". 
 ![](doc/screen0.png)
 
-## Test
+### Test
 
 ![](doc/screen1.png)
 
 
-# Install xsense and heasi drivers as 
+# Build and install Mandeye driver
+
+Please make install of mandeye driver with ROS 2 enabled. 
+But disable mandeye_controller:
+```
+mandeye_stop
+```
 

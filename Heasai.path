@@ -1,0 +1,11 @@
+diff --git a/launch/start.py b/launch/start.py
+index e21fb3b..f54b18e 100755
+--- a/launch/start.py
++++ b/launch/start.py
+@@ -6,5 +6,5 @@ def generate_launch_description():
+     rviz_config=get_package_share_directory('hesai_ros_driver')+'/rviz/rviz2.rviz'
+     return LaunchDescription([
+         Node(namespace='hesai_ros_driver', package='hesai_ros_driver', executable='hesai_ros_driver_node', output='screen'),
+-        Node(namespace='rviz2', package='rviz2', executable='rviz2', arguments=['-d',rviz_config])
++       # Node(namespace='rviz2', package='rviz2', executable='rviz2', arguments=['-d',rviz_config])
+     ])

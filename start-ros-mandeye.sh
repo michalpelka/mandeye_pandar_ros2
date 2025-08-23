@@ -2,5 +2,6 @@
 
 source /opt/ros/jazzy/setup.bash
 source /home/pi/mandeye_pandar_ros2/install/setup.bash
-exec ros2 launch xsens_mti_ros2_driver xsens_mti_node.launch.py
+export MANDEYE_LIDAR_SDK=ROS2
+/opt/mandeye/control_program
 
