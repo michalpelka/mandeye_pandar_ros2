@@ -15,8 +15,15 @@ sudo adduser mandeye dialout
 ## Disable Rviz2
 ```
 cd /home/pi/mandeye_pandar_ros2/src/HesaiLidar_ROS_2.0
-git apply /home/pi/mandeye_pandar_ros2/Heasai.path
+git apply /home/pi/mandeye_pandar_ros2/Heasai.patch
 ```
+
+## Set timestamping to software 
+```
+cd /home/pi/mandeye_pandar_ros2/src/Xsens_MTi_ROS_Driver_and_Ntrip_Client
+git apply /home/pi/mandeye_pandar_ros2/xens.patch
+```
+
 
 ## Build ROS 2 workspace
 
