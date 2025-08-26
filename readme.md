@@ -112,4 +112,8 @@ But disable mandeye_controller:
 ```
 mandeye_stop
 ```
+## Hesain jt16
 
+- apply patch (Hesai_jt16.patch)
+- adjust ROS 2 integration to use other imu topic in mandeye controller
+- rebuild and install mandeye controller

@@ -1,0 +1,46 @@
+diff --git a/config/config.yaml b/config/config.yaml
+index 0a83355..507a108 100644
+--- a/config/config.yaml
++++ b/config/config.yaml
+@@ -1,7 +1,7 @@
+ lidar:
+   - driver:
+       use_gpu: false
+-      source_type: 1                                  # The type of data source, 1: real-time lidar connection, 2: pcap, 3: packet rosbag, 4: serial    
++      source_type: 4                                  # The type of data source, 1: real-time lidar connection, 2: pcap, 3: packet rosbag, 4: serial    
+       # Depending on the type of source_type, fill in the corresponding configuration block (lidar_udp_type, pcap_type, serial_type)
+       lidar_udp_type:
+         device_ip_address: 192.168.1.201              # host_ip_address. If empty(""), the source ip of the udp point cloud is used
+@@ -38,11 +38,11 @@ lidar:
+         firetimes_path: "Your firetime file path"           # The path of firetimes file
+ 
+       serial_type:
+-        rs485_com: "Your serial port name for receiving point cloud"  # if using JT16, Port to receive the point cloud
+-        rs232_com: "Your serial port name for sending cmd"            # if using JT16, Port to send cmd
++        rs485_com: "/dev/ttyUSB0"  # if using JT16, Port to receive the point cloud
++        rs232_com: ""            # if using JT16, Port to send cmd
+         point_cloud_baudrate: 3125000
+         correction_save_path: ""                                      # turn on when you need to store angle calibration files(from lidar)
+-        correction_file_path: "Your correction file path"             # The path of correction file
++        correction_file_path: "/home/pi/JT16_sample_angle-2.csv"             # The path of correction file
+       
+       # public module
+       use_timestamp_type: 0                 # 0 use point cloud timestamp; 1 use receive timestamp
+@@ -77,4 +77,4 @@ lidar:
+       # ros_send_ptp_topic: /lidar_ptp                # Topic used to send PTP lock status, offset through ROS
+       send_packet_ros: false                          # true: Send packets through ROS 
+       send_point_cloud_ros: true                      # true: Send point cloud through ROS    
+-      send_imu_ros: true                              # true: Send imu through ROS    
+\ No newline at end of file
++      send_imu_ros: true                              # true: Send imu through ROS    
+diff --git a/launch/start.py b/launch/start.py
+index e21fb3b..f54b18e 100755
+--- a/launch/start.py
++++ b/launch/start.py
+@@ -6,5 +6,5 @@ def generate_launch_description():
+     rviz_config=get_package_share_directory('hesai_ros_driver')+'/rviz/rviz2.rviz'
+     return LaunchDescription([
+         Node(namespace='hesai_ros_driver', package='hesai_ros_driver', executable='hesai_ros_driver_node', output='screen'),
+-        Node(namespace='rviz2', package='rviz2', executable='rviz2', arguments=['-d',rviz_config])
++       # Node(namespace='rviz2', package='rviz2', executable='rviz2', arguments=['-d',rviz_config])
+     ])
